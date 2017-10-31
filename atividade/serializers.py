@@ -15,8 +15,8 @@ class PessoaSerializer(serializers.HyperlinkedModelSerializer):
 
 class EventoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model: Evento
-        fields = ('nome')
+        model = Evento
+        fields = ('nome',)
 
 class TicketSerializer(serializers.HyperlinkedModelSerializer):
     evento = EventoSerializer(many=False)
@@ -25,7 +25,7 @@ class TicketSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('nome', 'descricao', 'valor', 'evento')
 
 class InscricaoSerializer(serializers.HyperlinkedModelSerializer):
-    pessoa = EventoSerializer(many=False)
+    pessoa = PessoaSerializer(many=False)
     ticket = TicketSerializer(many=False)
     evento = EventoSerializer(many=False)
     class Meta:

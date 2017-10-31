@@ -27,6 +27,3 @@ class Inscricao(models.Model):
     Ticket = models.ForeignKey('Ticket')
     Evento = models.ForeignKey('Evento')
     validacao = models.BooleanField('validacao')
-
-    def __str__(self):
-        return self.nome
