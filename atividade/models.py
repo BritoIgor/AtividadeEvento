@@ -17,7 +17,7 @@ class Ticket(models.Model):
     nome = models.TextField('nome')
     descricao = models.TextField('descricao')
     valor = models.FloatField('valor')
-    Evento = models.ForeignKey('Evento')
+    Evento = models.ForeignKey('Evento', related_name='evento')
 
     def __str__(self):
         return self.nome
